@@ -165,9 +165,7 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
             text,
           ),
         )) {
-          print(text);
           text = '0$text';
-          print(text);
         }
 
         if (zeroRegExpM.any(
@@ -175,12 +173,8 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
             text,
           ),
         )) {
-          print(text);
-
           text =
               '${text.substring(0, text.indexOf('.') + 1)}0${text.substring(text.indexOf('.') + 1)}';
-
-          print(text);
         }
 
         if (pointRegExp.any(
@@ -231,8 +225,6 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
         dateController.selection =
             TextSelection.collapsed(offset: dateController.text.length);
       }
-
-      print(selectedDate);
     });
 
     init();
@@ -286,7 +278,6 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
 
   @override
   Widget build(BuildContext context) {
-    print("REBUILD");
     return Dialog(
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
