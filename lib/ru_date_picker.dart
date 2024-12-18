@@ -113,6 +113,9 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
       currentMonth = widget.initial!.month;
       currentDay = widget.initial!.day;
 
+      selectedDate = DateTime(
+          widget.initial!.year, widget.initial!.month, widget.initial!.day);
+
       setDate(
           year: widget.initial!.year,
           month: widget.initial!.month,
@@ -237,11 +240,8 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
     required int month,
     required int day,
   }) {
-    if (widget.initial != null) {
-      selectedDate = widget.initial;
-    }
-
     setState(() {
+      selectedDate = DateTime(year, month, day);
       dateController.text =
           '${day < 10 ? '0$day' : day}.${month < 10 ? '0$month' : month}.$year';
       dateController.selection =
