@@ -306,8 +306,11 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
                 errorText: matching ? null : "Введите корректную дату",
                 hintText: "ДД.ММ.ГГГГ ",
                 hintStyle:
-                    Theme.of(context).inputDecorationTheme.hintStyle!.copyWith(
-                          color: const Color(0xFF64748B),
+                    Theme.of(context).inputDecorationTheme.hintStyle?.copyWith(
+                              color: const Color(0xFF64748B),
+                            ) ??
+                        const TextStyle(
+                          color: Color(0xFF64748B),
                         ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
@@ -343,17 +346,19 @@ class _ArmDatePickerState extends State<ArmDatePicker> {
                   Text(
                     months[currentMonth - 1],
                     style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: const Color(0xFF495057)),
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: const Color(0xFF495057)) ??
+                        const TextStyle(color: Color(0xFF495057)),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     '$currentYear',
                     style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: const Color(0xFF495057)),
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: const Color(0xFF495057)) ??
+                        const TextStyle(color: Color(0xFF495057)),
                   ),
                   const Spacer(),
                   IconButton(
